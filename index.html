@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maluu • July 27</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system_ui, sans-serif; line-height: 1.75; }
+        .font-heading { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; letter-spacing: -0.025em; }
+        .countdown-card, .note-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .note-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); }
+        .time-box { background: #fff; border: 1px solid #f0e9e3; }
+        .nav-link { position: relative; }
+        .nav-link:after { content: ''; position: absolute; width: 0; height: 1px; bottom: -2px; left: 0; background-color: #D4A5A5; transition: width 0.3s ease; }
+        .nav-link:hover:after { width: 100%; }
+        .modal { animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes modalPop { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        .celebrate { animation: softPulse 2s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-[#FDF8F4] text-[#3F2E2E]">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#FDF8F4]/95 backdrop-blur-md border-b border-[#e8d9d0]">
+        <div class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-8 h-8 rounded-full bg-[#D4A5A5] flex items-center justify-center"><span class="text-white text-sm">♡</span></div>
+                <span class="font-heading text-2xl tracking-tight">Maluu</span>
+            </div>
+            <div class="flex items-center gap-x-8 text-sm">
+                <a href="#home" class="nav-link text-sm font-medium tracking-wide hover:text-[#D4A5A5]">Home</a>
+                <a href="#about" class="nav-link text-sm font-medium tracking-wide hover:text-[#D4A5A5]">About Her</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="flex justify-center mb-8">
+                <div class="flex items-center gap-x-4">
+                    <div class="h-px w-12 bg-[#D4A5A5]/40"></div>
+                    <div class="text-[#D4A5A5] text-xs tracking-[4px]">JULY 27</div>
+                    <div class="h-px w-12 bg-[#D4A5A5]/40"></div>
+                </div>
+            </div>
+
+            <h1 class="font-heading text-6xl md:text-7xl lg:text-8xl leading-none tracking-tighter mb-6">
+                Happy Birthday,<br><span class="text-[#D4A5A5]">Maluu</span>
+            </h1>
+            <p class="max-w-md mx-auto text-lg text-[#5C4A4A] mb-12">Wishing you a day as soft and beautiful as you are.</p>
+
+            <button onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })" 
+                    class="px-8 py-4 rounded-2xl border border-[#D4A5A5]/60 hover:border-[#D4A5A5] text-sm tracking-wider font-medium">
+                ABOUT HER
+            </button>
+        </div>
+    </section>
+
+    <!-- About Her -->
+    <section id="about" class="max-w-4xl mx-auto px-6 py-16 border-t border-[#e8d9d0]">
+        <div class="text-center mb-12">
+            <span class="text-[#D4A5A5] text-xs tracking-[3px]">FOR YOU</span>
+            <h2 class="font-heading text-5xl tracking-tight mt-3">About Her</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="notes-grid"></div>
+    </section>
+
+    <!-- Final Message -->
+    <div class="max-w-2xl mx-auto px-6 py-20 text-center border-t border-[#e8d9d0]">
+        <div class="bg-white border border-[#e8d9d0] rounded-3xl p-10 md:p-12">
+            <p class="text-[15.5px] md:text-base leading-relaxed text-[#3F2E2E]">
+                This is ur first birthday I'm celebrating.<br><br>
+                Enik Ninte koode ith celebrate cheyyanam ennund... Ennalum I understand our situation...<br><br>
+                I miss u so much dear.<br><br>
+                Ee birthday Ninte life ile oru nalla thudakkam aavatte ❤️<br><br>
+                <span class="font-heading text-2xl text-[#D4A5A5]">Happy Birthday sweetheart</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Special Countdowns -->
+    <section id="countdowns" class="max-w-5xl mx-auto px-6 pb-20">
+        <div class="text-center mb-14">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-white border border-[#e8d9d0]">
+                <div class="w-2 h-2 bg-[#D4A5A5] rounded-full animate-pulse"></div>
+                <span class="text-xs tracking-[2px] font-medium text-[#D4A5A5]">LIVE UPDATES</span>
+            </div>
+            <h2 class="font-heading text-5xl tracking-tight mt-3">Our Special Countdowns</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Birthday -->
+            <div class="countdown-card bg-white border border-[#e8d9d0] rounded-3xl p-8">
+                <div class="mb-6">
+                    <span class="text-xs tracking-widest text-[#D4A5A5]">BIRTHDAY</span>
+                    <h3 class="font-heading text-3xl mt-1">Maluu's Birthday</h3>
+                </div>
+                <div id="bday-content" class="grid grid-cols-4 gap-3 text-center"></div>
+            </div>
+
+            <!-- Proposal -->
+            <div class="countdown-card bg-white border border-[#e8d9d0] rounded-3xl p-8">
+                <div class="mb-6">
+                    <span class="text-xs tracking-widest text-[#D4A5A5]">PROPOSAL</span>
+                    <h3 class="font-heading text-3xl mt-1">Our Proposal Day</h3>
+                    <span class="text-xs text-[#8B6F6F]">11 October</span>
+                </div>
+                <div id="prop-content" class="grid grid-cols-4 gap-3 text-center"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-xs text-[#8B6F6F] border-t">CRAFTED WITH ♡ FOR MALUU • JULY 2026</footer>
+
+    <!-- Modal -->
+    <div id="note-modal" onclick="closeNoteModal()" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div onclick="event.stopImmediatePropagation()" class="modal bg-white rounded-3xl p-10 max-w-lg w-full relative">
+            <button onclick="closeNoteModal()" class="absolute top-6 right-6 text-2xl">✕</button>
+            <div id="modal-content" class="text-center"></div>
+        </div>
+    </div>
+
+    <script>
+        const pickupLines = [
+            { hint: "Click here", line: "My reason to smile a little brighter every single day" },
+            { hint: "Click here", line: "Home isn't a place anymore... ath maluu aanu" },
+            { hint: "Click here", line: "I still catch myself smiling at random moments… because of you" },
+            { hint: "Click here", line: "You didn’t just enter my life. You made it feel complete" }
+        ];
+
+        function renderNoteCards() {
+            const container = document.getElementById('notes-grid');
+            container.innerHTML = '';
+            pickupLines.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "note-card bg-white border border-[#e8d9d0] rounded-3xl p-8 cursor-pointer h-full flex flex-col items-center justify-center text-center";
+                card.innerHTML = `
+                    <div class="text-[#D4A5A5] text-5xl mb-6">♡</div>
+                    <p class="text-[#8B6F6F] text-sm tracking-wider">${item.hint}</p>
+                `;
+                card.onclick = () => {
+                    document.getElementById('modal-content').innerHTML = `
+                        <div class="text-5xl mb-6">💕</div>
+                        <p class="text-xl leading-relaxed italic">${item.line}</p>
+                    `;
+                    document.getElementById('note-modal').classList.remove('hidden');
+                };
+                container.appendChild(card);
+            });
+        }
+
+        function closeNoteModal() {
+            document.getElementById('note-modal').classList.add('hidden');
+        }
+
+        function getNextTarget(month, day) {
+            const now = new Date();
+            let year = now.getFullYear();
+            let target = new Date(year, month, day, 0, 0, 0);
+            if (now > target) {
+                target = new Date(year + 1, month, day, 0, 0, 0);
+            }
+            return target.getTime();
+        }
+
+        function getTimeLeft(target) {
+            const diff = target - Date.now();
+            if (diff <= 0) return { d:0, h:0, m:0, s:0, isToday: true };
+            return {
+                d: Math.floor(diff / 86400000),
+                h: Math.floor((diff % 86400000) / 3600000),
+                m: Math.floor((diff % 3600000) / 60000),
+                s: Math.floor((diff % 60000) / 1000),
+                isToday: false
+            };
+        }
+
+        function updateBirthdayCard() {
+            const target = getNextTarget(6, 27);
+            const time = getTimeLeft(target);
+            const container = document.getElementById('bday-content');
+
+            if (time.isToday) {
+                container.innerHTML = `
+                    <div class="col-span-4 text-center py-8 celebrate">
+                        <div class="text-5xl mb-4">🎉</div>
+                        <div class="font-heading text-2xl md:text-3xl text-[#D4A5A5]">Today is your birthday!</div>
+                        <p class="text-sm text-[#8B6F6F] mt-2">Happy Birthday Maaluu ❤️</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.d).padStart(2,'0')}</div><div class="text-xs">DAYS</div></div>
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.h).padStart(2,'0')}</div><div class="text-xs">HRS</div></div>
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.m).padStart(2,'0')}</div><div class="text-xs">MIN</div></div>
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.s).padStart(2,'0')}</div><div class="text-xs">SEC</div></div>
+                `;
+            }
+        }
+
+        function updateProposalCard() {
+            const target = getNextTarget(9, 11);
+            const time = getTimeLeft(target);
+            const container = document.getElementById('prop-content');
+
+            if (time.isToday) {
+                container.innerHTML = `
+                    <div class="col-span-4 text-center py-8 celebrate">
+                        <div class="text-5xl mb-4">💍</div>
+                        <div class="font-heading text-2xl md:text-3xl text-[#D4A5A5]">Today is our proposal day!</div>
+                        <p class="text-sm text-[#8B6F6F] mt-2">The day everything changed ❤️</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.d).padStart(2,'0')}</div><div class="text-xs">DAYS</div></div>
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.h).padStart(2,'0')}</div><div class="text-xs">HRS</div></div>
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.m).padStart(2,'0')}</div><div class="text-xs">MIN</div></div>
+                    <div class="time-box rounded-2xl py-4"><div class="font-semibold text-3xl">${String(time.s).padStart(2,'0')}</div><div class="text-xs">SEC</div></div>
+                `;
+            }
+        }
+
+        function init() {
+            renderNoteCards();
+            updateBirthdayCard();
+            updateProposalCard();
+            setInterval(() => {
+                updateBirthdayCard();
+                updateProposalCard();
+            }, 1000);
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>
